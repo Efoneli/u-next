@@ -11,7 +11,7 @@ a:focus, a:hover {
     text-decoration: underline;
 }
 
-ul {
+/* ul {
     list-style-type: none;
     padding: 0;
 }
@@ -22,4 +22,4 @@ li {
 
 li:not(:first-child) {
     margin-left: 0.75rem;
-}
+} */
