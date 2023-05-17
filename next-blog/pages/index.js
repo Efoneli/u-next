@@ -13,7 +13,7 @@ function HomePage() {
         <ul>
             <li>
                 <Link href='/post/first-post'>
-                    first
+                    <div>first</div>
                 </Link>
             </li>
         </ul>
