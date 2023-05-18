@@ -1,4 +1,10 @@
-# First post
+---
+title: First Post
+---
+
+
+
+<!-- # First post -->
 
 this is my first post by markdown
 
