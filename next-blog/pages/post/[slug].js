@@ -1,6 +1,5 @@
 import Head from "next/head";
-import Link from "next/link";
-
+import { getPost } from '../../lib/posts';
 
 export async function getStaticProps() {
   console.log('[FirstPage] getStaticProps()')
