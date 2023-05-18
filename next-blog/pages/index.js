@@ -1,4 +1,4 @@
-import NavBar from "./NavBar";
+import NavBar from "../components/NavBar";
 import Head from "next/head";
 import Link from "next/link";
 

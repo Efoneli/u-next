@@ -9,8 +9,8 @@ export async getStaticPaths() {
       { params: { slug: 'second-post' }},
     ],
     fallback: false,
-  }
-}
+  },
+};
 
 export async function getStaticProps(context) {
   console.log('[PostPage] getStaticProps()')
