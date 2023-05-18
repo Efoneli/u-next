@@ -13,22 +13,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  console.log('[PostPage] getStaticProps()')
-  // const data = await redFile('contents/post/first post.json', 'utf');
-  const post = await getPost('slug')
+  console.log('[PostPage] getStaticProps()');
+  // const data = await readFile('contents/post/first post.json', 'utf');
+  const post = await getPost('slug');
     return {
-        props: {
-            post
-        },
+        props: { post },
     };
 }
 
 function FirstPage({post}) {
   return (
     <>
-    <head>
+    <Head>
         <title>{post.title} - My Blog</title>
-    </head>
+    </Head>
       <main>
         <p>{date}</p>
         <h1>{post.title} - First Post</h1>
