@@ -2,15 +2,15 @@ import Head from "next/head";
 import { getPost } from '../../lib/posts';
 
 
-export async getStaticPaths() {
+export async function getStaticPaths() {
   return {
     paths: [
       { params: { slug: 'first-post' }},
       { params: { slug: 'second-post' }},
     ],
     fallback: false,
-  },
-};
+  }
+}
 
 export async function getStaticProps(context) {
   console.log('[PostPage] getStaticProps()')
