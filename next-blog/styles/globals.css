@@ -4,11 +4,6 @@
     --text-color: black;
 }
 
-:root {
-    --background-color: black;
-    --text-color: white;
-}
-
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var( --background-color);
