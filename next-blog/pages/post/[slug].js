@@ -1,8 +1,15 @@
 import Head from "next/head";
-import { getPost } from '../../lib/posts';
+import { getPost, getSlugs } from '../../lib/posts';
 
 
 export async function getStaticPaths() {
+  const slugs = await getSlugs();
+  return {
+    paths: slugs.map((slug) => ({
+      params: { slug },
+    })),
+    fallback: false;
+  }
   return {
     paths: [
       { params: { slug: 'first-post' }},
@@ -12,8 +19,8 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps(context) {
-  console.log('[PostPage] getStaticProps()');
+export async function getStaticProps({ params: { slug } }) {
+  console.log('[PostPage] getStaticProps()', slug);
   // const data = await readFile('contents/post/first post.json', 'utf');
   const post = await getPost('slug');
     return {
@@ -21,14 +28,14 @@ export async function getStaticProps(context) {
     };
 }
 
-function FirstPage({post}) {
+function PostPage({post}) {
   return (
     <>
     <Head>
         <title>{post.title} - My Blog</title>
     </Head>
       <main>
-        <p>{date}</p>
+        <p>{post.date}</p>
         <h1>{post.title} - First Post</h1>
         <article dangerouslySetInnerHTML={{ __html: post.body }} />
       </main>
@@ -36,4 +43,4 @@ function FirstPage({post}) {
   );
 }
 
-export default FirstPage;
+export default PostPage;

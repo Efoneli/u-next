@@ -1,8 +1,15 @@
-import NavBar from "../components/NavBar";
 import Head from "next/head";
 import Link from "next/link";
+import { getPosts } from '..//lib/posts'
 
-function HomePage() {
+export async function getStaticProps() {
+  const posts = await getPosts();
+  return {
+    props: { posts },
+  };
+}
+
+function HomePage({ posts}) {
   return (
     <>
     <head>
@@ -11,11 +18,15 @@ function HomePage() {
       <main>
         <h1>My Blog</h1>
         <ul>
-            <li>
-                <Link href='/post/first-post'>
-                    <div>first</div>
-                </Link>
-            </li>
+          {posts.map((post) => (
+             <li>
+             <Link href={`/post/${post.slug}`}>
+                 {post.title}
+             </Link>
+         </li>
+          ))}
+
+           
         </ul>
       </main>
     </>
